@@ -50,23 +50,26 @@
     <!-- WIDGET CONTAINER -->
     <div class="w-full glass-container rounded-lg flex flex-col md:flex-row overflow-hidden relative h-auto md:h-[80px] group">
         
-        <!-- Left: Image Strip / Header -->
-        <div class="w-full md:w-48 bg-[#003087] relative overflow-hidden shrink-0 flex items-center px-4 py-2 md:py-0">
+        <!-- Left: Header with specific GM Gradient -->
+        <div class="w-full md:w-56 bg-gradient-to-br from-[#003087] via-[#00429d] to-[#005AD2] relative overflow-hidden shrink-0 flex items-center px-4 py-3 md:py-0">
             <!-- Subtle Overlay Pattern -->
-            <div class="absolute inset-0 opacity-20 mix-blend-overlay" 
-                 style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 12px 12px;">
+            <div class="absolute inset-0 opacity-15 mix-blend-overlay" 
+                 style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 10px 10px;">
             </div>
+            
+            <!-- Shimmer effect for the gradient background -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_5s_infinite]"></div>
             
             <!-- Text Content -->
             <div class="relative z-10 flex md:flex-col items-center md:items-start justify-between w-full md:justify-center h-full">
                 <div>
-                    <h3 class="text-[9px] font-bold text-blue-200 uppercase tracking-wider mb-0.5">Job #1 Countdown</h3>
-                    <h2 class="text-xs md:text-sm font-bold text-white leading-none">2027 Silverado</h2>
+                    <h3 class="text-[9px] font-bold text-blue-100/80 uppercase tracking-widest mb-0.5">Job #1 Countdown</h3>
+                    <h2 class="text-xs md:text-sm font-black text-white leading-none tracking-tight">2027 SILVERADO</h2>
                 </div>
                 <!-- Mobile Status Badge -->
                 <div class="md:hidden flex items-center gap-1 bg-white/10 px-1.5 py-0.5 rounded border border-white/20">
                     <span class="w-1 h-1 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span class="text-[8px] font-bold text-white">Active</span>
+                    <span class="text-[8px] font-bold text-white uppercase">Active</span>
                 </div>
             </div>
         </div>
@@ -79,21 +82,21 @@
                 
                 <!-- Days -->
                 <div class="flex flex-col items-center">
-                    <span id="days" class="text-xl md:text-3xl font-black countdown-digit leading-none">000</span>
+                    <span id="days" class="text-2xl md:text-3xl font-black countdown-digit leading-none">000</span>
                     <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wide">Days</span>
                 </div>
                 <div class="text-slate-200 font-light text-xl pb-2">:</div>
                 
                 <!-- Hours -->
                 <div class="flex flex-col items-center">
-                    <span id="hours" class="text-xl md:text-3xl font-black countdown-digit leading-none">00</span>
+                    <span id="hours" class="text-2xl md:text-3xl font-black countdown-digit leading-none">00</span>
                     <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wide">Hours</span>
                 </div>
                 <div class="text-slate-200 font-light text-xl pb-2">:</div>
                 
                 <!-- Mins -->
                 <div class="flex flex-col items-center">
-                    <span id="minutes" class="text-xl md:text-3xl font-black countdown-digit leading-none">00</span>
+                    <span id="minutes" class="text-2xl md:text-3xl font-black countdown-digit leading-none">00</span>
                     <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wide">Mins</span>
                 </div>
             </div>
@@ -104,7 +107,7 @@
                     <span class="w-1.5 h-1.5 rounded-full bg-[#005AD2] animate-pulse"></span>
                     <span class="text-[9px] font-bold text-[#003087] uppercase tracking-tight">On Schedule</span>
                 </div>
-                <span class="text-[9px] text-slate-400 font-medium uppercase">Target: March 2026</span>
+                <span class="text-[9px] text-slate-400 font-semibold uppercase tracking-tighter">Target: MAR 2026</span>
             </div>
 
         </div>
