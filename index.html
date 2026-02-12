@@ -18,15 +18,26 @@
 
         /* GM Colors */
         :root {
-            --gm-dark-blue: #003087;
-            --gm-electric-blue: #005AD2;
-            --gm-accent: #00aef0;
-            --gm-bg-light: #F0F5FF;
+            --gm-dark: #001d52;
+            --gm-brand-blue: #003087;
+            --gm-electric: #005AD2;
+            --gm-highlight: #0084ff;
         }
 
         /* Essential for full height embedding */
         html, body { height: 100%; margin: 0; padding: 0; }
         body { background-color: transparent; }
+
+        /* Enhanced High-Visibility Gradient */
+        .gm-gradient-banner {
+            background: linear-gradient(165deg, 
+                var(--gm-dark) 0%, 
+                var(--gm-brand-blue) 40%, 
+                var(--gm-electric) 75%,
+                var(--gm-highlight) 100%
+            );
+            position: relative;
+        }
 
         /* --- LIQUID GLASS STYLES --- */
         .glass-container {
@@ -43,6 +54,18 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        @keyframes shimmer-slow {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(200%) skewX(-15deg); }
+        }
+        
+        .shimmer-layer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            animation: shimmer-slow 8s infinite linear;
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 p-0">
@@ -50,20 +73,20 @@
     <!-- WIDGET CONTAINER -->
     <div class="w-full glass-container rounded-lg flex flex-col md:flex-row overflow-hidden relative h-auto md:h-[80px] group">
         
-        <!-- Left: Header with specific GM Gradient -->
-        <div class="w-full md:w-56 bg-gradient-to-br from-[#003087] via-[#00429d] to-[#005AD2] relative overflow-hidden shrink-0 flex items-center px-4 py-3 md:py-0">
-            <!-- Subtle Overlay Pattern -->
-            <div class="absolute inset-0 opacity-15 mix-blend-overlay" 
-                 style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 10px 10px;">
-            </div>
+        <!-- Left: Header with High-Contrast GM Gradient -->
+        <div class="w-full md:w-56 gm-gradient-banner shrink-0 flex items-center px-4 py-3 md:py-0 overflow-hidden">
+            <!-- Shimmer effect for depth -->
+            <div class="shimmer-layer"></div>
             
-            <!-- Shimmer effect for the gradient background -->
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_5s_infinite]"></div>
+            <!-- Subtle Tech Pattern -->
+            <div class="absolute inset-0 opacity-10 mix-blend-overlay" 
+                 style="background-image: repeating-linear-gradient(45deg, white 0px, white 1px, transparent 1px, transparent 10px);">
+            </div>
             
             <!-- Text Content -->
             <div class="relative z-10 flex md:flex-col items-center md:items-start justify-between w-full md:justify-center h-full">
                 <div>
-                    <h3 class="text-[9px] font-bold text-blue-100/80 uppercase tracking-widest mb-0.5">Job #1 Countdown</h3>
+                    <h3 class="text-[9px] font-bold text-blue-100/90 uppercase tracking-widest mb-0.5">Job #1 Countdown</h3>
                     <h2 class="text-xs md:text-sm font-black text-white leading-none tracking-tight">2027 SILVERADO</h2>
                 </div>
                 <!-- Mobile Status Badge -->
@@ -155,7 +178,6 @@
     <style>
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
             100% { transform: translateX(100%); }
         }
     </style>
