@@ -16,12 +16,12 @@
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Ford Colors */
+        /* GM Colors */
         :root {
-            --ford-blue: #003478;
-            --col-green: #02b547;
-            --col-blue: #2576fe;
-            --col-orange: #fb5d01;
+            --gm-dark-blue: #003087;
+            --gm-electric-blue: #005AD2;
+            --gm-accent: #00aef0;
+            --gm-bg-light: #F0F5FF;
         }
 
         /* Essential for full height embedding */
@@ -30,16 +30,16 @@
 
         /* --- LIQUID GLASS STYLES --- */
         .glass-container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 4px 12px rgba(0, 52, 120, 0.05);
+            border: 1px solid rgba(0, 48, 135, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 48, 135, 0.08);
         }
 
         /* Countdown Number Styling */
         .countdown-digit {
             font-variant-numeric: tabular-nums;
-            background: linear-gradient(to bottom, #1e293b, #334155);
+            background: linear-gradient(to bottom, #003087, #005AD2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -47,29 +47,26 @@
 </head>
 <body class="font-sans text-slate-800 p-0">
 
-    <!-- WIDGET CONTAINER 
-         - Height: 80px (Desktop) / Auto (Mobile)
-         - Layout: Flex Row (Desktop) / Col (Mobile)
-    -->
+    <!-- WIDGET CONTAINER -->
     <div class="w-full glass-container rounded-lg flex flex-col md:flex-row overflow-hidden relative h-auto md:h-[80px] group">
         
-        <!-- Left: Image Strip (Desktop Only) / Header (Mobile) -->
-        <div class="w-full md:w-48 bg-[#003478] relative overflow-hidden shrink-0 flex items-center px-3 py-2 md:py-0">
-            <!-- Background Image -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay" 
-                 style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/2024_Ford_Mustang_Dark_Horse_Front.jpg/1280px-2024_Ford_Mustang_Dark_Horse_Front.jpg');">
+        <!-- Left: Image Strip / Header -->
+        <div class="w-full md:w-48 bg-[#003087] relative overflow-hidden shrink-0 flex items-center px-4 py-2 md:py-0">
+            <!-- Subtle Overlay Pattern -->
+            <div class="absolute inset-0 opacity-20 mix-blend-overlay" 
+                 style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 12px 12px;">
             </div>
             
             <!-- Text Content -->
             <div class="relative z-10 flex md:flex-col items-center md:items-start justify-between w-full md:justify-center h-full">
                 <div>
-                    <h3 class="text-[9px] font-bold text-blue-200 uppercase tracking-wider mb-0.5">Countdown</h3>
-                    <h2 class="text-xs md:text-sm font-bold text-white leading-none">S650 Dark Horse</h2>
+                    <h3 class="text-[9px] font-bold text-blue-200 uppercase tracking-wider mb-0.5">Job #1 Countdown</h3>
+                    <h2 class="text-xs md:text-sm font-bold text-white leading-none">2027 Silverado</h2>
                 </div>
                 <!-- Mobile Status Badge -->
                 <div class="md:hidden flex items-center gap-1 bg-white/10 px-1.5 py-0.5 rounded border border-white/20">
-                    <span class="w-1 h-1 rounded-full bg-green-400 animate-pulse"></span>
-                    <span class="text-[8px] font-bold text-white">On Track</span>
+                    <span class="w-1 h-1 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span class="text-[8px] font-bold text-white">Active</span>
                 </div>
             </div>
         </div>
@@ -78,44 +75,44 @@
         <div class="flex-1 bg-white flex items-center justify-between px-3 py-2 md:px-6">
             
             <!-- Countdown Digits -->
-            <div class="flex items-center gap-2 md:gap-4 flex-1 justify-center md:justify-start">
+            <div class="flex items-center gap-3 md:gap-6 flex-1 justify-center md:justify-start">
                 
                 <!-- Days -->
                 <div class="flex flex-col items-center">
-                    <span id="days" class="text-xl md:text-2xl font-black countdown-digit leading-none">00</span>
+                    <span id="days" class="text-xl md:text-3xl font-black countdown-digit leading-none">000</span>
                     <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wide">Days</span>
                 </div>
-                <div class="text-slate-300 font-light text-lg pb-2">:</div>
+                <div class="text-slate-200 font-light text-xl pb-2">:</div>
                 
                 <!-- Hours -->
                 <div class="flex flex-col items-center">
-                    <span id="hours" class="text-xl md:text-2xl font-black countdown-digit leading-none">00</span>
+                    <span id="hours" class="text-xl md:text-3xl font-black countdown-digit leading-none">00</span>
                     <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wide">Hours</span>
                 </div>
-                <div class="text-slate-300 font-light text-lg pb-2">:</div>
+                <div class="text-slate-200 font-light text-xl pb-2">:</div>
                 
                 <!-- Mins -->
                 <div class="flex flex-col items-center">
-                    <span id="minutes" class="text-xl md:text-2xl font-black countdown-digit leading-none">00</span>
+                    <span id="minutes" class="text-xl md:text-3xl font-black countdown-digit leading-none">00</span>
                     <span class="text-[8px] font-bold text-slate-400 uppercase tracking-wide">Mins</span>
                 </div>
             </div>
 
             <!-- Desktop Status Badge / Footer Info -->
-            <div class="hidden md:flex flex-col items-end gap-1 border-l border-slate-100 pl-4">
-                <div class="flex items-center gap-1.5 bg-green-50 px-2 py-0.5 rounded-full border border-green-100">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                    <span class="text-[9px] font-bold text-green-700 uppercase">On Track</span>
+            <div class="hidden md:flex flex-col items-end gap-1 border-l border-slate-100 pl-6">
+                <div class="flex items-center gap-1.5 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#005AD2] animate-pulse"></span>
+                    <span class="text-[9px] font-bold text-[#003087] uppercase tracking-tight">On Schedule</span>
                 </div>
-                <span class="text-[9px] text-slate-400 font-mono">Job #1: Mar 06</span>
+                <span class="text-[9px] text-slate-400 font-medium uppercase">Target: March 2026</span>
             </div>
 
         </div>
 
         <!-- Progress Bar (Bottom) -->
         <div class="absolute bottom-0 left-0 right-0 h-1 bg-slate-100">
-            <div class="bg-gradient-to-r from-[#003478] to-[#2576fe] h-full w-[85%] relative overflow-hidden">
-                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-full h-full -translate-x-full animate-[shimmer_2s_infinite]"></div>
+            <div class="bg-gradient-to-r from-[#003087] to-[#005AD2] h-full w-[78%] relative overflow-hidden">
+                 <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full h-full -translate-x-full animate-[shimmer_3s_infinite]"></div>
             </div>
         </div>
 
@@ -125,8 +122,8 @@
     <script>
         lucide.createIcons();
 
-        // Target Date: March 6, 2026
-        const targetDate = new Date('March 6, 2026 09:00:00').getTime();
+        // Target Date: March 6, 2026 (Job #1)
+        const targetDate = new Date('March 6, 2026 07:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -154,6 +151,8 @@
     
     <style>
         @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
             100% { transform: translateX(100%); }
         }
     </style>
